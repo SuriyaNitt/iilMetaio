@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<TrackingData>
+    
+    
+  <Sensors>
+    <Sensor type="FeatureBasedSensorSource" subtype="ML3D">
+        
+      <SensorID>FeatureTracking1</SensorID>
+      <Parameters>
+        <FeatureDescriptorAlignment>gravity</FeatureDescriptorAlignment>
+      </Parameters>
+      
+      <SensorCOS>
+        <SensorCosID>Map3D0</SensorCosID>
+        <Parameters>
+          <!-- SourceSensorID to distinguish where this cos comes from -->
+          <SourceSensorID>FeatureTracking1</SourceSensorID>
+          <minMatches>20</minMatches>
+          <minTrackingMatches>20</minTrackingMatches>
+          <numExtensibleFeatures>400</numExtensibleFeatures>
+          <useTriangulation>1</useTriangulation>
+          <GravityToleranceAngle>12.0</GravityToleranceAngle>
+          <Map>map0.raw</Map>
+        </Parameters>
+      </SensorCOS>
+      
+      <SensorCOS>
+        <SensorCosID>Map3D1</SensorCosID>
+        <Parameters>
+          <!-- SourceSensorID to distinguish where this cos comes from -->
+          <SourceSensorID>FeatureTracking1</SourceSensorID>
+          <minMatches>20</minMatches>
+          <minTrackingMatches>20</minTrackingMatches>
+          <numExtensibleFeatures>400</numExtensibleFeatures>
+          <useTriangulation>1</useTriangulation>
+          <GravityVector>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>-1.0</z>
+          </GravityVector>
+          <GravityToleranceAngle>20.0</GravityToleranceAngle>
+          <Map>map1.raw</Map>
+        </Parameters>
+      </SensorCOS>
+      
+       <SensorCOS>
+        <SensorCosID>Map3D2</SensorCosID>
+        <Parameters>
+          <!-- SourceSensorID to distinguish where this cos comes from -->
+          <SourceSensorID>FeatureTracking1</SourceSensorID>
+          <minMatches>20</minMatches>
+          <minTrackingMatches>20</minTrackingMatches>
+          <numExtensibleFeatures>400</numExtensibleFeatures>
+          <useTriangulation>1</useTriangulation>
+          <GravityVector>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>-1.0</z>
+          </GravityVector>
+          <GravityToleranceAngle>20.0</GravityToleranceAngle>
+          <Map>map2.raw</Map>
+        </Parameters>
+      </SensorCOS>
+      
+    </Sensor>
+  </Sensors>
+  
+  
+	<Connections>
+	    
+		<COS>
+			<Name>COS1</Name>
+			<Fuser type="SmoothingFuser">
+				<Parameters>
+					<!-- Alpha is in the range [0...1] and determines how strong a new pose is.
+				  alpha = 0.9: less smoothing
+				  alpha = 0.1: alot smoothing-->
+					<AlphaRotation>0.8</AlphaRotation> 
+					<AlphaTranslation>0.9</AlphaTranslation>
+					<!-- if we lose tracking, keep the old pose for several frames -->
+					<KeepPoseForNumberOfFrames>0</KeepPoseForNumberOfFrames>
+				</Parameters>
+			</Fuser>
+			<SensorSource trigger="1">
+				<SensorID>FeatureTracking1</SensorID>
+				<SensorCosID>Map3D0</SensorCosID>
+				
+				<HandEyeCalibration>
+					<TranslationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</TranslationOffset>
+					<RotationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+						<w>1</w>
+					</RotationOffset>
+				</HandEyeCalibration>
+				
+				<COSOffset>
+					<TranslationOffset>
+						<x>-200</x>
+						<y>0</y>
+						<z>0</z>
+					</TranslationOffset>
+					<RotationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+						<w>1</w>
+					</RotationOffset>
+				</COSOffset>
+			</SensorSource>
+			
+		</COS>
+		
+		
+		<COS>
+			<Name>COS2</Name>
+			<Fuser type="SmoothingFuser">
+				<Parameters>
+					<!-- Alpha is in the range [0...1] and determines how strong a new pose is.
+				  alpha = 0.9: less smoothing
+				  alpha = 0.1: alot smoothing-->
+					<AlphaRotation>0.8</AlphaRotation> 
+					<AlphaTranslation>0.9</AlphaTranslation>
+					<!-- if we lose tracking, keep the old pose for several frames -->
+					<KeepPoseForNumberOfFrames>0</KeepPoseForNumberOfFrames>
+				</Parameters>
+			</Fuser>
+			<SensorSource trigger="1">
+				<SensorID>FeatureTracking1</SensorID>
+				<SensorCosID>Map3D1</SensorCosID>
+				
+				<HandEyeCalibration>
+					<TranslationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+					</TranslationOffset>
+					<RotationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+						<w>1</w>
+					</RotationOffset>
+				</HandEyeCalibration>
+				
+				<COSOffset>
+					<TranslationOffset>
+						<x>-200</x>
+						<y>0</y>
+						<z>0</z>
+					</TranslationOffset>
+					<RotationOffset>
+						<x>0</x>
+						<y>0</y>
+						<z>0</z>
+						<w>1</w>
+					</RotationOffset>
+				</COSOffset>
+			</SensorSource>
+			
+		</COS>
+		
+		
+	</Connections>  
+  
+</TrackingData>
