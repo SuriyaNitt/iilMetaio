@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<TrackingData>
+  <Sensors>
+    <Sensor type="MarkerBasedSensorSource">
+      <SensorID>MarkerTracking1</SensorID>
+      <Parameters>
+        <MarkerTrackingParameters>
+          <trackingQuality>robust</trackingQuality>
+          <thresholdOffset>154</thresholdOffset>
+        </MarkerTrackingParameters>
+      </Parameters>
+      <SensorCOS>
+        <SensorCosID>Marker1</SensorCosID>
+        <Parameters>
+          <MarkerParameters>
+            <Size>150.000000</Size>
+            <MatrixID>80</MatrixID>
+          </MarkerParameters>
+        </Parameters>
+      </SensorCOS>
+    </Sensor>
+  </Sensors>
+  <Connections>
+    <COS>
+      <Name>cos_Marker1</Name>
+      <Fuser type="BestQualityFuser">
+        <Parameters/>
+      </Fuser>
+      <SensorSource trigger="1">
+        <SensorID>MarkerTracking1</SensorID>
+        <SensorCosID>Marker1</SensorCosID>
+        <COSOffset>
+          <TranslationOffset>
+            <x>0.000000</x>
+            <y>0.000000</y>
+            <z>0.000000</z>
+          </TranslationOffset>
+          <RotationOffset>
+            <x>0.000000</x>
+            <y>0.000000</y>
+            <z>0.000000</z>
+            <w>1.000000</w>
+          </RotationOffset>
+        </COSOffset>
+      </SensorSource>
+    </COS>
+  </Connections>
+</TrackingData>

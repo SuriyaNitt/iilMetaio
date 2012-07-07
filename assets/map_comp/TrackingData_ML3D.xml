@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<TrackingData>
+    
+  <Sensors>
+    <Sensor type="FeatureBasedSensorSource" subtype="ML3D">
+        
+        
+      <SensorID>FeatureTracking1</SensorID>
+      <Parameters>
+        <FeatureDescriptorAlignment>gravity</FeatureDescriptorAlignment>
+      </Parameters>
+      <SensorCOS>
+        <SensorCosID>Map3D</SensorCosID>
+        <Parameters>
+          <!-- SourceSensorID to distinguish where this cos comes from -->
+          <SourceSensorID>FeatureTracking1</SourceSensorID>
+          <minMatches>20</minMatches>
+          <minTrackingMatches>20</minTrackingMatches>
+          <numExtensibleFeatures>400</numExtensibleFeatures>
+          <useTriangulation>1</useTriangulation>
+          <GravityVector>
+            <x>0.0</x>
+            <y>0.0</y>
+            <z>-1.0</z>
+          </GravityVector>
+          <GravityToleranceAngle>20.0</GravityToleranceAngle>
+          <Map>map0.raw</Map>
+        </Parameters>
+      </SensorCOS>
+      
+      
+    </Sensor>
+  </Sensors>
+  
+</TrackingData>
